@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Mi Galaxia Para Ti 💫</title>
+<title>Mi Galaxia Para Ti ðŸ’«</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,7 +21,7 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 #btn-amor{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(200,100,255,.15);border:1px solid rgba(200,100,255,.5);color:rgba(255,220,255,.9);padding:11px 30px;border-radius:50px;font-family:'Lato',sans-serif;font-size:.85rem;letter-spacing:.15em;cursor:none;backdrop-filter:blur(10px);transition:all .4s ease;animation:fadeIn 4s ease forwards;opacity:0;text-transform:uppercase}
 #btn-amor:hover{background:rgba(200,100,255,.35);border-color:rgba(255,200,255,.8);box-shadow:0 0 30px rgba(200,100,255,.4);transform:translateX(-50%) scale(1.05)}
 
-/* ── CARTA DE AMOR ── */
+/* â”€â”€ CARTA DE AMOR â”€â”€ */
 #card-overlay{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,10,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s ease}
 #card-overlay.visible{opacity:1;pointer-events:all}
 #love-card{position:relative;background:linear-gradient(145deg,rgba(30,0,50,.92),rgba(10,0,30,.96));border:1px solid rgba(200,100,255,.4);border-radius:20px;padding:clamp(24px,5vw,48px) clamp(18px,5vw,44px) clamp(20px,4vw,40px);max-width:420px;width:92%;max-height:90vh;overflow-y:auto;text-align:center;box-shadow:0 0 60px rgba(180,50,255,.35),0 0 120px rgba(180,50,255,.15),inset 0 0 40px rgba(150,0,255,.07);transform:scale(.7) translateY(40px);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0}
@@ -42,35 +42,47 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
 @keyframes floatDeco{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
 @keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+#col-btn{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:300;background:rgba(100,0,200,.2);border:1px solid rgba(200,100,255,.4);color:rgba(255,220,255,.9);padding:7px 20px;border-radius:30px;font-size:.72rem;letter-spacing:.1em;cursor:pointer;backdrop-filter:blur(8px);text-transform:uppercase;touch-action:manipulation;white-space:nowrap}
+#col-panel{position:fixed;top:46px;left:50%;transform:translateX(-50%);z-index:300;background:rgba(5,0,20,.92);border:1px solid rgba(150,50,255,.3);border-radius:16px;padding:14px;width:min(96vw,580px);max-height:55vh;overflow-y:auto;backdrop-filter:blur(12px);display:none}
+#col-panel.open{display:block}.col-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.col-ttl{font-family:'Playfair Display',serif;font-style:italic;color:rgba(220,180,255,.9);font-size:.9rem}.col-pct{font-size:.68rem;color:rgba(200,150,255,.6);letter-spacing:.08em}
+.rs{margin-bottom:8px}.rl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}.rc{color:#999}.rr{color:#60aaff}.re{color:#cc66ff}.rl2{color:#ffcc00}.rm{color:#ff66cc}
+.rg{display:flex;flex-wrap:wrap;gap:4px}.cs{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;position:relative;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);transition:.3s}
+.cs.got{border-color:rgba(200,150,255,.4);background:rgba(150,0,255,.12)}.cs .ck{position:absolute;top:-5px;right:-5px;font-size:11px;color:#7fff7f;font-weight:900;line-height:1;text-shadow:0 0 4px #0f0}
+.cs.rara.got{border-color:#60aaff;box-shadow:0 0 7px rgba(96,170,255,.4)}.cs.epica.got{border-color:#cc66ff;box-shadow:0 0 8px rgba(200,100,255,.5)}.cs.legendaria.got{border-color:#ffcc00;box-shadow:0 0 10px rgba(255,200,0,.5)}.cs.mitica.got{border-color:#ff66cc;box-shadow:0 0 14px rgba(255,100,200,.7);animation:mp 2s ease-in-out infinite}
+@keyframes mp{0%,100%{box-shadow:0 0 14px rgba(255,100,200,.7)}50%{box-shadow:0 0 24px rgba(255,100,200,1)}}
+.rb{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}.rb.comun{color:#999}.rb.rara{color:#60aaff}.rb.epica{color:#cc66ff}.rb.legendaria{color:#ffcc00}.rb.mitica{color:#ff66cc}100%{background-position:200% 50%}}
 </style>
 </head>
 <body>
 <canvas id="galaxy"></canvas>
 <div id="cursor"></div>
-<div id="firma">✦ Tu Universo</div>
-<div id="hint">☄️ toca los meteoritos</div>
+<button id="col-btn" onclick="togglePanel()">📦 Colección: <span id="col-count">0</span>/100</button>
+<div id="col-panel"><div class="col-hdr"><span class="col-ttl">✦ Mis Cartas de Amor ✦</span><span class="col-pct" id="col-pct">0% completado</span></div><div class="rs"><div class="rl rm">🔮 Mítica</div><div class="rg" id="grid-mitica"></div></div><div class="rs"><div class="rl rl2">🌟 Legendaria</div><div class="rg" id="grid-legendaria"></div></div><div class="rs"><div class="rl re">💜 Épica</div><div class="rg" id="grid-epica"></div></div><div class="rs"><div class="rl rr">💙 Rara</div><div class="rg" id="grid-rara"></div></div><div class="rs"><div class="rl rc">⭐ Común</div><div class="rg" id="grid-comun"></div></div></div>
+<div id="firma">âœ¦ Tu Universo</div>
+<div id="hint">â˜„ï¸ toca los meteoritos</div>
 <div id="mensaje">
   <h1>Eres mi galaxia favorita</h1>
   <p>En cada estrella veo razones para amarte</p>
-  <div id="hearts">💜 ✨ 💫 ✨ 💜</div>
+  <div id="hearts">ðŸ’œ âœ¨ ðŸ’« âœ¨ ðŸ’œ</div>
 </div>
-<div id="meteor-badge">☄️ &nbsp;Hay meteoritos con cartas de amor esperándote&nbsp; ☄️</div>
-<button id="btn-amor" onclick="explodeStars()">✨ Explosión de amor ✨</button>
+<div id="meteor-badge">â˜„ï¸ &nbsp;Hay meteoritos con cartas de amor esperÃ¡ndote&nbsp; â˜„ï¸</div>
+<button id="btn-amor" onclick="explodeStars()">âœ¨ ExplosiÃ³n de amor âœ¨</button>
 
 <!-- Carta de amor -->
 <div id="card-overlay" onclick="closeCard(event)">
   <div id="love-card">
     <div class="card-stars" id="cardStarsCanvas"></div>
-    <div class="card-deco" id="cardDeco">💌</div>
+    <div class="card-deco" id="cardDeco">ðŸ’Œ</div>
     <div class="card-title" id="cardTitle">Para ti, mi amor</div>
     <p class="card-text" id="cardText"></p>
-    <div class="card-footer">— Con todo mi amor 💜</div>
-    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta ✕</button>
+    <div class="card-footer">â€” Con todo mi amor ðŸ’œ</div>
+    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta âœ•</button>
   </div>
 </div>
 
+<script src="cartas.js"></script>
 <script>
-// ── Setup ─────────────────────────────────────────────────────────────
+// â”€â”€ Setup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const canvas = document.getElementById('galaxy');
 const ctx    = canvas.getContext('2d');
 let W = canvas.width  = window.innerWidth;
@@ -93,58 +105,23 @@ window.addEventListener('resize', () => {
   initNebula();
 });
 
-// ── Cartas de amor ────────────────────────────────────────────────────
-const CARTAS = [
-  { deco:'💌', titulo:'Para ti, mi amor',
-    texto:'Cada vez que miro el cielo nocturno, pienso en ti. Eres la estrella más brillante de mi universo, la que guía cada uno de mis pasos. Gracias por existir y por dejarme amarte.' },
-  { deco:'🌸', titulo:'Mi flor en el cosmos',
-    texto:'Si pudiera atrapar todas las estrellas de esta galaxia y ponértelas en las manos, aún así no alcanzarían para expresar todo lo que siento por ti. Eres mi razón favorita para sonreír.' },
-  { deco:'🦋', titulo:'Tú y yo, infinito',
-    texto:'Dicen que el universo es infinito, pero yo creo que el amor que siento por ti es aún más grande. En cada rincón del cosmos encuentro algo que me recuerda a tu sonrisa.' },
-  { deco:'🌙', titulo:'Mi luna favorita',
-    texto:'Cuando la noche cae y las estrellas despiertan, solo pienso en ti. Eres la calma en mi tormenta cósmica, el suave brillo que ilumina mi mundo oscuro. Te amo, mi luna.' },
-  { deco:'✨', titulo:'Un deseo para ti',
-    texto:'Si cada estrella que ves aquí fuera un deseo, todos serían para ti: que seas feliz, que estés bien, que sepas que alguien en este universo te ama profundamente cada día.' },
-  { deco:'🌺', titulo:'Eres mi hogar',
-    texto:'El espacio es vasto y frío, pero a tu lado todo se siente cálido y lleno de luz. Eres mi lugar favorito en todo el universo, mi hogar entre las estrellas. Nunca olvides eso.' },
-  { deco:'💫', titulo:'Estrella especial',
-    texto:'Entre millones de estrellas en esta galaxia, tus ojos brillan más que todas juntas. No necesito buscar maravillas en el cosmos cuando te tengo a ti, que eres la maravilla más grande.' },
-  { deco:'🌹', titulo:'Mi universo paralelo',
-    texto:'Creo en los universos paralelos solo porque quiero pensar que en cada uno de ellos también te encuentro, también me enamoro de ti, también elegimos vivir esta historia juntos.' },
-];
+// â”€â”€ Cartas de amor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Collection system (cards in cartas.js)
+const RARITY_COLORS={comun:'#ffffff',rara:'#60aaff',epica:'#cc66ff',legendaria:'#ffcc00',mitica:'#ff66cc'};
+let collected=new Set(JSON.parse(localStorage.getItem('coleccion')||'[]'));
+function saveCollection(){localStorage.setItem('coleccion',JSON.stringify([...collected]));}
+function pickRarity(){const r=Math.random()*100;if(r<1)return'mitica';if(r<5)return'legendaria';if(r<17)return'epica';if(r<45)return'rara';return'comun';}
+function pickCarta(rar){const p=CARTAS.filter(c=>c.r===rar);return p.length?p[Math.floor(Math.random()*p.length)]:CARTAS[0];}
+function mostrarCarta(mx,my,rar){const c=pickCarta(rar||'comun');collected.add(c.id);saveCollection();renderCollection();document.getElementById('cardDeco').textContent=c.d;document.getElementById('cardTitle').textContent=c.t;document.getElementById('cardText').textContent=c.x;const rb=document.getElementById('cardRarity');if(rb){const names={comun:'Comun',rara:'Rara',epica:'Epica',legendaria:'LEGENDARIA',mitica:'MITICA'};rb.textContent='Rareza: '+names[c.r];rb.className='rb '+c.r;}document.getElementById('card-overlay').classList.add('visible');const col=RARITY_COLORS[c.r]||'#fff';for(let i=0;i<30;i++){const a=Math.random()*Math.PI*2,sp=Math.random()*5+1;const s=new Star(mx,my,Math.random()*2+.5,1,0,col);s.vx=Math.cos(a)*sp;s.vy=Math.sin(a)*sp;s.maxLife=s.life=Math.random()*50+20;trail.push(s);}}
+function closeCard(e,force){if(force||(e&&e.target===document.getElementById('card-overlay')))document.getElementById('card-overlay').classList.remove('visible');}
+function togglePanel(){document.getElementById('col-panel').classList.toggle('open');}
+function renderCollection(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML=grids[r].map(c=>{const got=collected.has(c.id);return'<div class="cs '+r+(got?' got':'')+' " title="'+(got?c.t:'???')+'">'+(got?c.d:'🌑')+(got?'<span class="ck">+</span>':'')+'</div>';}).join('');});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
 
-let cartaIdx = 0;
-function mostrarCarta(meteorX, meteorY) {
-  const carta = CARTAS[cartaIdx % CARTAS.length];
-  cartaIdx++;
-  document.getElementById('cardDeco').textContent  = carta.deco;
-  document.getElementById('cardTitle').textContent = carta.titulo;
-  document.getElementById('cardText').textContent  = carta.texto;
-  const overlay = document.getElementById('card-overlay');
-  overlay.classList.add('visible');
-  // Pequeña explosión donde estaba el meteorito
-  for (let i = 0; i < 30; i++) {
-    const angle = Math.random() * Math.PI * 2;
-    const spd   = Math.random() * 5 + 1;
-    const s = new Star(meteorX, meteorY, Math.random()*2+.5, 1, 0, randomStarColor());
-    s.vx = Math.cos(angle) * spd;
-    s.vy = Math.sin(angle) * spd;
-    s.maxLife = s.life = Math.random() * 50 + 20;
-    trail.push(s);
-  }
-}
-function closeCard(e, force) {
-  if (force || (e && e.target === document.getElementById('card-overlay'))) {
-    document.getElementById('card-overlay').classList.remove('visible');
-  }
-}
-
-// ── Colors ────────────────────────────────────────────────────────────
 function randomStarColor() {
   return ['#ffffff','#ffd6ff','#c77dff','#ff9ef7','#a8dadc','#caf0f8','#e0aaff','#ffcfef','#f8edff','#b5e2fa'][Math.floor(Math.random()*10)];
 }
 
-// ── Stars ─────────────────────────────────────────────────────────────
+// â”€â”€ Stars â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const stars = [], trail = [], explosionParticles = [];
 class Star {
   constructor(x,y,size,alpha,speed,color){
@@ -176,7 +153,7 @@ class Star {
 }
 function initStars(){stars.length=0;for(let i=0;i<700;i++)stars.push(new Star());}
 
-// ── Meteors (clickable) ───────────────────────────────────────────────
+// â”€â”€ Meteors (clickable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const meteors = [];
 let meteorTimer = 0;
 
@@ -240,11 +217,11 @@ class Meteor {
     ctx.arc(this.x, this.y, this.headSize + 5, 0, Math.PI*2);
     ctx.stroke();
     ctx.restore();
-    // 💌 emoji float near head
+    // ðŸ’Œ emoji float near head
     ctx.save();
     ctx.globalAlpha = this.alpha * .7;
     ctx.font = '14px serif';
-    ctx.fillText('💌', this.x + 10, this.y - 10);
+    ctx.fillText('ðŸ’Œ', this.x + 10, this.y - 10);
     ctx.restore();
   }
   hitTest(px, py){
@@ -261,12 +238,12 @@ function spawnMeteors(){
   }
 }
 
-// ── Tap handler (click + touch) ──────────────────────────────────────
+// â”€â”€ Tap handler (click + touch) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function handleTap(mx, my){
   let hit = false;
   for(let i = meteors.length-1; i>=0; i--){
     if(meteors[i].active && meteors[i].hitTest(mx, my)){
-      mostrarCarta(mx, my);
+      mostrarCarta(mx, my, meteors[i].rareza);
       meteors[i].active = false;
       hit = true; break;
     }
@@ -287,7 +264,7 @@ canvas.addEventListener('touchstart', e => {
   handleTap(e.touches[0].clientX, e.touches[0].clientY);
 }, {passive:false});
 
-// ── Dust ──────────────────────────────────────────────────────────────
+// â”€â”€ Dust â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const DUST=[];
 class Dust{
   constructor(){this.reset();}
@@ -302,7 +279,7 @@ class Dust{
 }
 for(let i=0;i<200;i++) DUST.push(new Dust());
 
-// ── Cursor / touch trail ──────────────────────────────────────────────
+// â”€â”€ Cursor / touch trail â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function spawnTrailAt(x,y){
   if(Math.random()>.4){
     const t=new Star(x+(Math.random()-.5)*8,y+(Math.random()-.5)*8,Math.random()*2+.5,.9,0,randomStarColor());
@@ -314,7 +291,7 @@ function spawnTrailAt(x,y){
 document.addEventListener('mousemove', e => spawnTrailAt(e.clientX, e.clientY));
 document.addEventListener('touchmove', e => spawnTrailAt(e.touches[0].clientX, e.touches[0].clientY), {passive:true});
 
-// ── Explosion button ──────────────────────────────────────────────────
+// â”€â”€ Explosion button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function explodeStars(){
   for(let i=0;i<120;i++){
     const ang=Math.random()*Math.PI*2,spd=Math.random()*8+2;
@@ -325,7 +302,7 @@ function explodeStars(){
   }
 }
 
-// ── Nebula ────────────────────────────────────────────────────────────
+// â”€â”€ Nebula â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const nebCanvas=document.createElement('canvas');
 const nebCtx=nebCanvas.getContext('2d');
 function initNebula(){
@@ -344,7 +321,7 @@ function drawGalaxyCore(){
   ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
 }
 
-// ── Main loop ─────────────────────────────────────────────────────────
+// â”€â”€ Main loop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function animate(){
   requestAnimationFrame(animate);
   ctx.fillStyle='rgba(0,0,2,.25)'; ctx.fillRect(0,0,W,H);
@@ -359,7 +336,13 @@ function animate(){
   ctx.globalAlpha=1;
 }
 
-initNebula(); initStars(); animate();
+initNebula(); initStars(); animate(); renderCollection();
 </script>
 </body>
 </html>
+
+
+
+
+
+
