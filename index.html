@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Mi Galaxia Para Ti 💫</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:'Lato',sans-serif;cursor:none}
+@media(pointer:coarse){body{cursor:auto}#cursor{display:none}}
+@media(max-width:600px){#firma{font-size:.8rem;top:14px;left:14px}#hint{font-size:.65rem;top:14px;right:14px}#mensaje h1{font-size:clamp(1.4rem,7vw,2.4rem)}#btn-amor{font-size:.75rem;padding:10px 22px;bottom:24px}#meteor-badge{font-size:.65rem;bottom:76px}}
+canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
+#cursor{position:fixed;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,255,.9),rgba(200,100,255,.3));box-shadow:0 0 15px rgba(255,150,255,.8),0 0 30px rgba(180,50,255,.5);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#firma{position:fixed;top:22px;left:28px;color:rgba(200,150,255,.55);font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;z-index:200;animation:fadeIn 3s ease forwards;opacity:0}
+#hint{position:fixed;top:22px;right:28px;color:rgba(200,150,255,.55);font-size:.72rem;letter-spacing:.1em;z-index:200;text-transform:uppercase;animation:fadeIn 3s ease forwards;opacity:0}
+#mensaje{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:100;pointer-events:none;animation:fadeInUp 2.5s ease forwards;opacity:0}
+#mensaje h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,4rem);font-style:italic;color:transparent;background:linear-gradient(135deg,#ffd6ff,#c77dff,#ff9ef7,#a8dadc);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 20px rgba(200,100,255,.6));margin-bottom:.8rem;line-height:1.2}
+#mensaje p{font-weight:300;font-size:clamp(.85rem,1.8vw,1.2rem);color:rgba(255,220,255,.8);letter-spacing:.12em;text-shadow:0 0 10px rgba(200,100,255,.5)}
+#hearts{font-size:1.6rem;margin-top:.7rem;animation:pulse 2s ease-in-out infinite}
+#btn-amor{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(200,100,255,.15);border:1px solid rgba(200,100,255,.5);color:rgba(255,220,255,.9);padding:11px 30px;border-radius:50px;font-family:'Lato',sans-serif;font-size:.85rem;letter-spacing:.15em;cursor:none;backdrop-filter:blur(10px);transition:all .4s ease;animation:fadeIn 4s ease forwards;opacity:0;text-transform:uppercase}
+#btn-amor:hover{background:rgba(200,100,255,.35);border-color:rgba(255,200,255,.8);box-shadow:0 0 30px rgba(200,100,255,.4);transform:translateX(-50%) scale(1.05)}
+
+/* ── CARTA DE AMOR ── */
+#card-overlay{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,10,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s ease}
+#card-overlay.visible{opacity:1;pointer-events:all}
+#love-card{position:relative;background:linear-gradient(145deg,rgba(30,0,50,.92),rgba(10,0,30,.96));border:1px solid rgba(200,100,255,.4);border-radius:20px;padding:clamp(24px,5vw,48px) clamp(18px,5vw,44px) clamp(20px,4vw,40px);max-width:420px;width:92%;max-height:90vh;overflow-y:auto;text-align:center;box-shadow:0 0 60px rgba(180,50,255,.35),0 0 120px rgba(180,50,255,.15),inset 0 0 40px rgba(150,0,255,.07);transform:scale(.7) translateY(40px);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0}
+#card-overlay.visible #love-card{transform:scale(1) translateY(0);opacity:1}
+.card-deco{font-size:clamp(1.8rem,6vw,2.4rem);margin-bottom:12px;animation:floatDeco 3s ease-in-out infinite}
+.card-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.15rem,4vw,1.5rem);color:transparent;background:linear-gradient(135deg,#ffd6ff,#c77dff,#ff9ef7);-webkit-background-clip:text;background-clip:text;margin-bottom:14px;filter:drop-shadow(0 0 8px rgba(200,100,255,.5))}
+.card-text{font-weight:300;font-size:clamp(.88rem,2.5vw,1rem);color:rgba(240,210,255,.88);line-height:1.75;letter-spacing:.03em}
+.card-footer{margin-top:22px;font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:rgba(200,150,255,.7)}
+#card-close{margin-top:22px;background:rgba(200,100,255,.15);border:1px solid rgba(200,100,255,.4);color:rgba(255,220,255,.85);padding:11px 28px;border-radius:50px;font-size:.8rem;letter-spacing:.12em;cursor:pointer;transition:all .3s ease;text-transform:uppercase;min-height:44px;touch-action:manipulation}
+#card-close:hover{background:rgba(200,100,255,.3);box-shadow:0 0 20px rgba(200,100,255,.3)}
+.card-stars{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:20px;overflow:hidden;pointer-events:none}
+
+/* meteor hint badge */
+#meteor-badge{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);color:rgba(255,180,255,.5);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;animation:fadeIn 5s ease forwards;opacity:0;pointer-events:none}
+
+@keyframes fadeInUp{0%{opacity:0;transform:translate(-50%,-40%)}100%{opacity:1;transform:translate(-50%,-50%)}}
+@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes floatDeco{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+</style>
+</head>
+<body>
+<canvas id="galaxy"></canvas>
+<div id="cursor"></div>
+<div id="firma">✦ Tu Universo</div>
+<div id="hint">☄️ toca los meteoritos</div>
+<div id="mensaje">
+  <h1>Eres mi galaxia favorita</h1>
+  <p>En cada estrella veo razones para amarte</p>
+  <div id="hearts">💜 ✨ 💫 ✨ 💜</div>
+</div>
+<div id="meteor-badge">☄️ &nbsp;Hay meteoritos con cartas de amor esperándote&nbsp; ☄️</div>
+<button id="btn-amor" onclick="explodeStars()">✨ Explosión de amor ✨</button>
+
+<!-- Carta de amor -->
+<div id="card-overlay" onclick="closeCard(event)">
+  <div id="love-card">
+    <div class="card-stars" id="cardStarsCanvas"></div>
+    <div class="card-deco" id="cardDeco">💌</div>
+    <div class="card-title" id="cardTitle">Para ti, mi amor</div>
+    <p class="card-text" id="cardText"></p>
+    <div class="card-footer">— Con todo mi amor 💜</div>
+    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta ✕</button>
+  </div>
+</div>
+
+<script>
+// ── Setup ─────────────────────────────────────────────────────────────
+const canvas = document.getElementById('galaxy');
+const ctx    = canvas.getContext('2d');
+let W = canvas.width  = window.innerWidth;
+let H = canvas.height = window.innerHeight;
+const cursor = document.getElementById('cursor');
+let mouseX = W/2, mouseY = H/2;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top  = mouseY + 'px';
+});
+document.addEventListener('touchmove', e => {
+  const t = e.touches[0];
+  mouseX = t.clientX; mouseY = t.clientY;
+}, {passive:true});
+window.addEventListener('resize', () => {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  initNebula();
+});
+
+// ── Cartas de amor ────────────────────────────────────────────────────
+const CARTAS = [
+  { deco:'💌', titulo:'Para ti, mi amor',
+    texto:'Cada vez que miro el cielo nocturno, pienso en ti. Eres la estrella más brillante de mi universo, la que guía cada uno de mis pasos. Gracias por existir y por dejarme amarte.' },
+  { deco:'🌸', titulo:'Mi flor en el cosmos',
+    texto:'Si pudiera atrapar todas las estrellas de esta galaxia y ponértelas en las manos, aún así no alcanzarían para expresar todo lo que siento por ti. Eres mi razón favorita para sonreír.' },
+  { deco:'🦋', titulo:'Tú y yo, infinito',
+    texto:'Dicen que el universo es infinito, pero yo creo que el amor que siento por ti es aún más grande. En cada rincón del cosmos encuentro algo que me recuerda a tu sonrisa.' },
+  { deco:'🌙', titulo:'Mi luna favorita',
+    texto:'Cuando la noche cae y las estrellas despiertan, solo pienso en ti. Eres la calma en mi tormenta cósmica, el suave brillo que ilumina mi mundo oscuro. Te amo, mi luna.' },
+  { deco:'✨', titulo:'Un deseo para ti',
+    texto:'Si cada estrella que ves aquí fuera un deseo, todos serían para ti: que seas feliz, que estés bien, que sepas que alguien en este universo te ama profundamente cada día.' },
+  { deco:'🌺', titulo:'Eres mi hogar',
+    texto:'El espacio es vasto y frío, pero a tu lado todo se siente cálido y lleno de luz. Eres mi lugar favorito en todo el universo, mi hogar entre las estrellas. Nunca olvides eso.' },
+  { deco:'💫', titulo:'Estrella especial',
+    texto:'Entre millones de estrellas en esta galaxia, tus ojos brillan más que todas juntas. No necesito buscar maravillas en el cosmos cuando te tengo a ti, que eres la maravilla más grande.' },
+  { deco:'🌹', titulo:'Mi universo paralelo',
+    texto:'Creo en los universos paralelos solo porque quiero pensar que en cada uno de ellos también te encuentro, también me enamoro de ti, también elegimos vivir esta historia juntos.' },
+];
+
+let cartaIdx = 0;
+function mostrarCarta(meteorX, meteorY) {
+  const carta = CARTAS[cartaIdx % CARTAS.length];
+  cartaIdx++;
+  document.getElementById('cardDeco').textContent  = carta.deco;
+  document.getElementById('cardTitle').textContent = carta.titulo;
+  document.getElementById('cardText').textContent  = carta.texto;
+  const overlay = document.getElementById('card-overlay');
+  overlay.classList.add('visible');
+  // Pequeña explosión donde estaba el meteorito
+  for (let i = 0; i < 30; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const spd   = Math.random() * 5 + 1;
+    const s = new Star(meteorX, meteorY, Math.random()*2+.5, 1, 0, randomStarColor());
+    s.vx = Math.cos(angle) * spd;
+    s.vy = Math.sin(angle) * spd;
+    s.maxLife = s.life = Math.random() * 50 + 20;
+    trail.push(s);
+  }
+}
+function closeCard(e, force) {
+  if (force || (e && e.target === document.getElementById('card-overlay'))) {
+    document.getElementById('card-overlay').classList.remove('visible');
+  }
+}
+
+// ── Colors ────────────────────────────────────────────────────────────
+function randomStarColor() {
+  return ['#ffffff','#ffd6ff','#c77dff','#ff9ef7','#a8dadc','#caf0f8','#e0aaff','#ffcfef','#f8edff','#b5e2fa'][Math.floor(Math.random()*10)];
+}
+
+// ── Stars ─────────────────────────────────────────────────────────────
+const stars = [], trail = [], explosionParticles = [];
+class Star {
+  constructor(x,y,size,alpha,speed,color){
+    this.x=x??Math.random()*W; this.y=y??Math.random()*H;
+    this.size=size??Math.random()*2+.3;
+    this.alpha=alpha??Math.random(); this.baseAlpha=this.alpha;
+    this.twinkleSpeed=Math.random()*.02+.005;
+    this.twinkleDir=Math.random()>.5?1:-1;
+    this.vx=(Math.random()-.5)*(speed??0.05);
+    this.vy=(Math.random()-.5)*(speed??0.05);
+    this.color=color??randomStarColor();
+    this.life=null; this.maxLife=null;
+  }
+  update(){
+    this.x+=this.vx; this.y+=this.vy;
+    if(this.x<0)this.x=W; if(this.x>W)this.x=0;
+    if(this.y<0)this.y=H; if(this.y>H)this.y=0;
+    this.alpha+=this.twinkleDir*this.twinkleSpeed;
+    if(this.alpha>this.baseAlpha+.3||this.alpha<this.baseAlpha-.3)this.twinkleDir*=-1;
+    this.alpha=Math.max(.05,Math.min(1,this.alpha));
+    if(this.life!==null){this.life--;this.alpha=(this.life/this.maxLife)*this.baseAlpha;}
+  }
+  draw(){
+    ctx.save();ctx.globalAlpha=this.alpha;
+    ctx.shadowBlur=this.size*5;ctx.shadowColor=this.color;
+    ctx.fillStyle=this.color;ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore();
+  }
+}
+function initStars(){stars.length=0;for(let i=0;i<700;i++)stars.push(new Star());}
+
+// ── Meteors (clickable) ───────────────────────────────────────────────
+const meteors = [];
+let meteorTimer = 0;
+
+class Meteor {
+  constructor(){
+    this.x = Math.random() * W * 0.7;
+    this.y = Math.random() * H * 0.35;
+    this.speed = Math.random() * 5 + 3.5;
+    this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.4;
+    this.alpha = 0;
+    this.fadeIn = true;
+    this.tail   = [];
+    this.color  = randomStarColor();
+    this.active = true;
+    this.headSize = Math.random() * 3 + 3; // bigger = easier to click
+    // Hitbox: track head position
+    this.hx = this.x; this.hy = this.y;
+    // Glow pulse
+    this.glowPhase = Math.random() * Math.PI * 2;
+  }
+  update(){
+    this.x += Math.cos(this.angle) * this.speed;
+    this.y += Math.sin(this.angle) * this.speed;
+    this.hx = this.x; this.hy = this.y;
+    this.tail.push({x:this.x, y:this.y});
+    if(this.tail.length > 28) this.tail.shift();
+    if(this.fadeIn){ this.alpha = Math.min(this.alpha + .04, 1); if(this.alpha>=1)this.fadeIn=false; }
+    else { this.alpha -= .012; }
+    this.glowPhase += 0.1;
+    if(this.alpha<=0 || this.x>W+50 || this.y>H+50) this.active=false;
+  }
+  draw(){
+    // Tail
+    for(let i=0;i<this.tail.length-1;i++){
+      const a = (i/this.tail.length)*this.alpha*.8;
+      ctx.save();
+      ctx.globalAlpha=a;
+      ctx.strokeStyle=this.color;
+      ctx.lineWidth=1.5*(i/this.tail.length);
+      ctx.shadowBlur=12; ctx.shadowColor=this.color;
+      ctx.beginPath();
+      ctx.moveTo(this.tail[i].x,this.tail[i].y);
+      ctx.lineTo(this.tail[i+1].x,this.tail[i+1].y);
+      ctx.stroke();
+      ctx.restore();
+    }
+    // Head glow
+    const glow = 18 + Math.sin(this.glowPhase)*6;
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.shadowBlur  = glow; ctx.shadowColor = '#ffaaff';
+    ctx.fillStyle   = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.headSize, 0, Math.PI*2);
+    ctx.fill();
+    // Outer ring hint
+    ctx.globalAlpha = this.alpha * .3;
+    ctx.strokeStyle = '#ff88ff';
+    ctx.lineWidth   = 1.5;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.headSize + 5, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+    // 💌 emoji float near head
+    ctx.save();
+    ctx.globalAlpha = this.alpha * .7;
+    ctx.font = '14px serif';
+    ctx.fillText('💌', this.x + 10, this.y - 10);
+    ctx.restore();
+  }
+  hitTest(px, py){
+    const dx=this.hx-px, dy=this.hy-py;
+    return Math.sqrt(dx*dx+dy*dy) < this.headSize + 18;
+  }
+}
+
+function spawnMeteors(){
+  meteorTimer++;
+  if(meteorTimer % 80 === 0){
+    meteors.push(new Meteor());
+    if(meteors.length > 8) meteors.splice(0,1);
+  }
+}
+
+// ── Tap handler (click + touch) ──────────────────────────────────────
+function handleTap(mx, my){
+  let hit = false;
+  for(let i = meteors.length-1; i>=0; i--){
+    if(meteors[i].active && meteors[i].hitTest(mx, my)){
+      mostrarCarta(mx, my);
+      meteors[i].active = false;
+      hit = true; break;
+    }
+  }
+  if(!hit){
+    for(let i=0;i<12;i++){
+      const s=new Star(mx+(Math.random()-.5)*20,my+(Math.random()-.5)*20,Math.random()*2.5+.5,1,0,randomStarColor());
+      const ang=Math.random()*Math.PI*2,spd=Math.random()*4+1;
+      s.vx=Math.cos(ang)*spd; s.vy=Math.sin(ang)*spd;
+      s.maxLife=s.life=Math.random()*60+20;
+      trail.push(s);
+    }
+  }
+}
+canvas.addEventListener('click', e => handleTap(e.clientX, e.clientY));
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  handleTap(e.touches[0].clientX, e.touches[0].clientY);
+}, {passive:false});
+
+// ── Dust ──────────────────────────────────────────────────────────────
+const DUST=[];
+class Dust{
+  constructor(){this.reset();}
+  reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.r=Math.random()*1.5+.5;this.color=randomStarColor();this.alpha=Math.random()*.5+.1;this.vx=0;this.vy=0;}
+  update(){
+    const dx=this.x-mouseX,dy=this.y-mouseY,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<120){const f=(120-dist)/120*1.5;this.vx+=(dx/dist)*f;this.vy+=(dy/dist)*f;}
+    this.vx*=.92;this.vy*=.92;this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>W||this.y<0||this.y>H)this.reset();
+  }
+  draw(){ctx.save();ctx.globalAlpha=this.alpha;ctx.fillStyle=this.color;ctx.shadowBlur=6;ctx.shadowColor=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();}
+}
+for(let i=0;i<200;i++) DUST.push(new Dust());
+
+// ── Cursor / touch trail ──────────────────────────────────────────────
+function spawnTrailAt(x,y){
+  if(Math.random()>.4){
+    const t=new Star(x+(Math.random()-.5)*8,y+(Math.random()-.5)*8,Math.random()*2+.5,.9,0,randomStarColor());
+    t.vx=(Math.random()-.5)*.8; t.vy=(Math.random()-.5)*.8;
+    t.maxLife=t.life=Math.random()*30+10;
+    trail.push(t);
+  }
+}
+document.addEventListener('mousemove', e => spawnTrailAt(e.clientX, e.clientY));
+document.addEventListener('touchmove', e => spawnTrailAt(e.touches[0].clientX, e.touches[0].clientY), {passive:true});
+
+// ── Explosion button ──────────────────────────────────────────────────
+function explodeStars(){
+  for(let i=0;i<120;i++){
+    const ang=Math.random()*Math.PI*2,spd=Math.random()*8+2;
+    const s=new Star(W/2,H/2,Math.random()*3+1,1,0,randomStarColor());
+    s.vx=Math.cos(ang)*spd; s.vy=Math.sin(ang)*spd;
+    s.maxLife=s.life=Math.random()*80+40;
+    explosionParticles.push(s);
+  }
+}
+
+// ── Nebula ────────────────────────────────────────────────────────────
+const nebCanvas=document.createElement('canvas');
+const nebCtx=nebCanvas.getContext('2d');
+function initNebula(){
+  nebCanvas.width=W; nebCanvas.height=H;
+  nebCtx.clearRect(0,0,W,H);
+  [{x:W*.25,y:H*.4,r:Math.min(W,H)*.38,c:'rgba(120,0,200,.18)'},{x:W*.75,y:H*.5,r:Math.min(W,H)*.32,c:'rgba(200,0,120,.14)'},{x:W*.5,y:H*.25,r:Math.min(W,H)*.28,c:'rgba(0,80,200,.12)'},{x:W*.55,y:H*.7,r:Math.min(W,H)*.25,c:'rgba(80,0,180,.13)'},{x:W*.15,y:H*.7,r:Math.min(W,H)*.20,c:'rgba(180,50,255,.10)'}]
+  .forEach(n=>{const g=nebCtx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r);g.addColorStop(0,n.c);g.addColorStop(1,'transparent');nebCtx.fillStyle=g;nebCtx.fillRect(0,0,W,H);});
+  const b=nebCtx.createLinearGradient(0,H*.3,W,H*.7);
+  b.addColorStop(0,'transparent');b.addColorStop(.3,'rgba(150,50,255,.06)');b.addColorStop(.5,'rgba(200,80,255,.10)');b.addColorStop(.7,'rgba(100,30,200,.06)');b.addColorStop(1,'transparent');
+  nebCtx.fillStyle=b; nebCtx.fillRect(0,0,W,H);
+}
+function drawGalaxyCore(){
+  const cx=W/2,cy=H/2,r=Math.min(W,H)*.07;
+  const g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+  g.addColorStop(0,'rgba(255,240,255,.55)');g.addColorStop(.4,'rgba(200,100,255,.18)');g.addColorStop(1,'transparent');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+}
+
+// ── Main loop ─────────────────────────────────────────────────────────
+function animate(){
+  requestAnimationFrame(animate);
+  ctx.fillStyle='rgba(0,0,2,.25)'; ctx.fillRect(0,0,W,H);
+  ctx.globalAlpha=1; ctx.drawImage(nebCanvas,0,0);
+  drawGalaxyCore();
+  spawnMeteors();
+  for(let i=meteors.length-1;i>=0;i--){ meteors[i].update(); meteors[i].draw(); if(!meteors[i].active)meteors.splice(i,1); }
+  for(const s of stars){s.update();s.draw();}
+  for(const d of DUST){d.update();d.draw();}
+  for(let i=trail.length-1;i>=0;i--){trail[i].update();trail[i].draw();if(trail[i].life<=0)trail.splice(i,1);}
+  for(let i=explosionParticles.length-1;i>=0;i--){explosionParticles[i].update();explosionParticles[i].draw();if(explosionParticles[i].life<=0)explosionParticles.splice(i,1);}
+  ctx.globalAlpha=1;
+}
+
+initNebula(); initStars(); animate();
+</script>
+</body>
+</html>
