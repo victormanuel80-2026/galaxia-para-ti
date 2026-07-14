@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Mi Galaxia Para Ti ðŸ’«</title>
+<title>Mi Galaxia Para Ti &#xF0;&#x178;&#x2019;&#xAB;</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,7 +21,7 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 #btn-amor{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(200,100,255,.15);border:1px solid rgba(200,100,255,.5);color:rgba(255,220,255,.9);padding:11px 30px;border-radius:50px;font-family:'Lato',sans-serif;font-size:.85rem;letter-spacing:.15em;cursor:none;backdrop-filter:blur(10px);transition:all .4s ease;animation:fadeIn 4s ease forwards;opacity:0;text-transform:uppercase}
 #btn-amor:hover{background:rgba(200,100,255,.35);border-color:rgba(255,200,255,.8);box-shadow:0 0 30px rgba(200,100,255,.4);transform:translateX(-50%) scale(1.05)}
 
-/* â”€â”€ CARTA DE AMOR â”€â”€ */
+/* &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; CARTA DE AMOR &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; */
 #card-overlay{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,10,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s ease}
 #card-overlay.visible{opacity:1;pointer-events:all}
 #love-card{position:relative;background:linear-gradient(145deg,rgba(30,0,50,.92),rgba(10,0,30,.96));border:1px solid rgba(200,100,255,.4);border-radius:20px;padding:clamp(24px,5vw,48px) clamp(18px,5vw,44px) clamp(20px,4vw,40px);max-width:420px;width:92%;max-height:90vh;overflow-y:auto;text-align:center;box-shadow:0 0 60px rgba(180,50,255,.35),0 0 120px rgba(180,50,255,.15),inset 0 0 40px rgba(150,0,255,.07);transform:scale(.7) translateY(40px);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0}
@@ -56,33 +56,33 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 <body>
 <canvas id="galaxy"></canvas>
 <div id="cursor"></div>
-<button id="col-btn" onclick="togglePanel()">📦 Colección: <span id="col-count">0</span>/100</button>
-<div id="col-panel"><div class="col-hdr"><span class="col-ttl">✦ Mis Cartas de Amor ✦</span><span class="col-pct" id="col-pct">0% completado</span></div><div class="rs"><div class="rl rm">🔮 Mítica</div><div class="rg" id="grid-mitica"></div></div><div class="rs"><div class="rl rl2">🌟 Legendaria</div><div class="rg" id="grid-legendaria"></div></div><div class="rs"><div class="rl re">💜 Épica</div><div class="rg" id="grid-epica"></div></div><div class="rs"><div class="rl rr">💙 Rara</div><div class="rg" id="grid-rara"></div></div><div class="rs"><div class="rl rc">⭐ Común</div><div class="rg" id="grid-comun"></div></div></div>
-<div id="firma">âœ¦ Tu Universo</div>
-<div id="hint">â˜„ï¸ toca los meteoritos</div>
+<button id="col-btn" onclick="togglePanel()">&#x1F4E6; Colecci&#xF3;n: <span id="col-count">0</span>/100</button>
+<div id="col-panel"><div class="col-hdr"><span class="col-ttl">&#x2726; Mis Cartas de Amor &#x2726;</span><span class="col-pct" id="col-pct">0% completado</span></div><div class="rs"><div class="rl rm">&#x1F52E; M&#xED;tica</div><div class="rg" id="grid-mitica"></div></div><div class="rs"><div class="rl rl2">&#x1F31F; Legendaria</div><div class="rg" id="grid-legendaria"></div></div><div class="rs"><div class="rl re">&#x1F49C; &#xC9;pica</div><div class="rg" id="grid-epica"></div></div><div class="rs"><div class="rl rr">&#x1F499; Rara</div><div class="rg" id="grid-rara"></div></div><div class="rs"><div class="rl rc">&#x2B50; Com&#xFA;n</div><div class="rg" id="grid-comun"></div></div></div>
+<div id="firma">&#xE2;&#x153;&#xA6; Tu Universo</div>
+<div id="hint">&#xE2;&#x2DC;&#x201E;&#xEF;&#xB8;&#x8F; toca los meteoritos</div>
 <div id="mensaje">
   <h1>Eres mi galaxia favorita</h1>
   <p>En cada estrella veo razones para amarte</p>
-  <div id="hearts">ðŸ’œ âœ¨ ðŸ’« âœ¨ ðŸ’œ</div>
+  <div id="hearts">&#xF0;&#x178;&#x2019;&#x153; &#xE2;&#x153;&#xA8; &#xF0;&#x178;&#x2019;&#xAB; &#xE2;&#x153;&#xA8; &#xF0;&#x178;&#x2019;&#x153;</div>
 </div>
-<div id="meteor-badge">â˜„ï¸ &nbsp;Hay meteoritos con cartas de amor esperÃ¡ndote&nbsp; â˜„ï¸</div>
-<button id="btn-amor" onclick="explodeStars()">âœ¨ ExplosiÃ³n de amor âœ¨</button>
+<div id="meteor-badge">&#xE2;&#x2DC;&#x201E;&#xEF;&#xB8;&#x8F; &nbsp;Hay meteoritos con cartas de amor esper&#xC3;&#xA1;ndote&nbsp; &#xE2;&#x2DC;&#x201E;&#xEF;&#xB8;&#x8F;</div>
+<button id="btn-amor" onclick="explodeStars()">&#xE2;&#x153;&#xA8; Explosi&#xC3;&#xB3;n de amor &#xE2;&#x153;&#xA8;</button>
 
 <!-- Carta de amor - UTF8 -->
 <div id="card-overlay" onclick="closeCard(event)">
   <div id="love-card">
     <div class="card-stars" id="cardStarsCanvas"></div>
-    <div class="card-deco" id="cardDeco">ðŸ’Œ</div>
+    <div class="card-deco" id="cardDeco">&#xF0;&#x178;&#x2019;&#x152;</div>
     <div class="card-title" id="cardTitle">Para ti, mi amor</div>
     <p class="card-text" id="cardText"></p>
-    <div class="card-footer">â€” Con todo mi amor ðŸ’œ</div>
-    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta âœ•</button>
+    <div class="card-footer">&#xE2;&#x20AC;&#x201D; Con todo mi amor &#xF0;&#x178;&#x2019;&#x153;</div>
+    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta &#xE2;&#x153;&#x2022;</button>
   </div>
 </div>
 
 <script src="cartas.js"></script>
 <script>
-// â”€â”€ Setup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Setup &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 const canvas = document.getElementById('galaxy');
 const ctx    = canvas.getContext('2d');
 let W = canvas.width  = window.innerWidth;
@@ -105,25 +105,25 @@ window.addEventListener('resize', () => {
   initNebula();
 });
 
-// â”€â”€ Cartas de amor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Cartas de amor &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 // Collection system (cards in cartas.js)
 const RARITY_COLORS={comun:'#ffffff',rara:'#60aaff',epica:'#cc66ff',legendaria:'#ffcc00',mitica:'#ff66cc'};
 let collected=new Set(JSON.parse(localStorage.getItem('coleccion')||'[]'));
 function saveCollection(){localStorage.setItem('coleccion',JSON.stringify([...collected]));}
 function pickRarity(){const r=Math.random()*100;if(r<1)return'mitica';if(r<5)return'legendaria';if(r<17)return'epica';if(r<45)return'rara';return'comun';}
 function pickCarta(rar){const p=CARTAS.filter(c=>c.r===rar);return p.length?p[Math.floor(Math.random()*p.length)]:CARTAS[0];}
-function showCardData(c){const names={comun:'⭐ Común',rara:'💙 Rara',epica:'💜 Épica',legendaria:'🌟 ¡LEGENDARIA!',mitica:'🔮 ¡¡MÍTICA!!'};document.getElementById('cardDeco').textContent=c.d;document.getElementById('cardTitle').textContent=c.t;document.getElementById('cardText').textContent=c.x;const rb=document.getElementById('cardRarity');if(rb){rb.textContent=names[c.r]||c.r;rb.className='rb '+c.r;}document.getElementById('card-overlay').classList.add('visible');}
+function showCardData(c){const names={comun:'&#x2B50; Com&#xFA;n',rara:'&#x1F499; Rara',epica:'&#x1F49C; &#xC9;pica',legendaria:'&#x1F31F; &#xA1;LEGENDARIA!',mitica:'&#x1F52E; &#xA1;&#xA1;M&#xCD;TICA!!'};document.getElementById('cardDeco').textContent=c.d;document.getElementById('cardTitle').textContent=c.t;document.getElementById('cardText').textContent=c.x;const rb=document.getElementById('cardRarity');if(rb){rb.textContent=names[c.r]||c.r;rb.className='rb '+c.r;}document.getElementById('card-overlay').classList.add('visible');}
 function mostrarCarta(mx,my,rar){const c=pickCarta(rar||'comun');collected.add(c.id);saveCollection();renderCollection();showCardData(c);const col=RARITY_COLORS[c.r]||'#fff';for(let i=0;i<30;i++){const a=Math.random()*Math.PI*2,sp=Math.random()*5+1;const s=new Star(mx,my,Math.random()*2+.5,1,0,col);s.vx=Math.cos(a)*sp;s.vy=Math.sin(a)*sp;s.maxLife=s.life=Math.random()*50+20;trail.push(s);}}
 function verCarta(id){const c=CARTAS.find(x=>x.id===id);if(!c)return;document.getElementById('col-panel').classList.remove('open');showCardData(c);}
 function closeCard(e,force){if(force||(e&&e.target===document.getElementById('card-overlay')))document.getElementById('card-overlay').classList.remove('visible');}
 function togglePanel(){document.getElementById('col-panel').classList.toggle('open');}
-function renderCollection(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML=grids[r].map(c=>{const got=collected.has(c.id);const click=got?'onclick="verCarta('+c.id+')" style="cursor:pointer"':'';return'<div class="cs '+r+(got?' got':'')+' " title="'+(got?c.t:'???')+'" '+click+'>'+(got?c.d:'🌑')+(got?'<span class="ck">+</span>':'')+'</div>';}).join('');});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
+function renderCollection(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML=grids[r].map(c=>{const got=collected.has(c.id);const click=got?'onclick="verCarta('+c.id+')" style="cursor:pointer"':'';return'<div class="cs '+r+(got?' got':'')+' " title="'+(got?c.t:'???')+'" '+click+'>'+(got?c.d:'&#x1F311;')+(got?'<span class="ck">+</span>':'')+'</div>';}).join('');});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
 
 function randomStarColor() {
   return ['#ffffff','#ffd6ff','#c77dff','#ff9ef7','#a8dadc','#caf0f8','#e0aaff','#ffcfef','#f8edff','#b5e2fa'][Math.floor(Math.random()*10)];
 }
 
-// â”€â”€ Stars â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Stars &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 const stars = [], trail = [], explosionParticles = [];
 class Star {
   constructor(x,y,size,alpha,speed,color){
@@ -155,7 +155,7 @@ class Star {
 }
 function initStars(){stars.length=0;for(let i=0;i<700;i++)stars.push(new Star());}
 
-// â”€â”€ Meteors (clickable) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Meteors (clickable) &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 const meteors = [];
 let meteorTimer = 0;
 
@@ -219,11 +219,11 @@ class Meteor {
     ctx.arc(this.x, this.y, this.headSize + 5, 0, Math.PI*2);
     ctx.stroke();
     ctx.restore();
-    // ðŸ’Œ emoji float near head
+    // &#xF0;&#x178;&#x2019;&#x152; emoji float near head
     ctx.save();
     ctx.globalAlpha = this.alpha * .7;
     ctx.font = '14px serif';
-    ctx.fillText('ðŸ’Œ', this.x + 10, this.y - 10);
+    ctx.fillText('&#xF0;&#x178;&#x2019;&#x152;', this.x + 10, this.y - 10);
     ctx.restore();
   }
   hitTest(px, py){
@@ -240,7 +240,7 @@ function spawnMeteors(){
   }
 }
 
-// â”€â”€ Tap handler (click + touch) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Tap handler (click + touch) &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 function handleTap(mx, my){
   let hit = false;
   for(let i = meteors.length-1; i>=0; i--){
@@ -266,7 +266,7 @@ canvas.addEventListener('touchstart', e => {
   handleTap(e.touches[0].clientX, e.touches[0].clientY);
 }, {passive:false});
 
-// â”€â”€ Dust â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Dust &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 const DUST=[];
 class Dust{
   constructor(){this.reset();}
@@ -281,7 +281,7 @@ class Dust{
 }
 for(let i=0;i<200;i++) DUST.push(new Dust());
 
-// â”€â”€ Cursor / touch trail â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Cursor / touch trail &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 function spawnTrailAt(x,y){
   if(Math.random()>.4){
     const t=new Star(x+(Math.random()-.5)*8,y+(Math.random()-.5)*8,Math.random()*2+.5,.9,0,randomStarColor());
@@ -293,7 +293,7 @@ function spawnTrailAt(x,y){
 document.addEventListener('mousemove', e => spawnTrailAt(e.clientX, e.clientY));
 document.addEventListener('touchmove', e => spawnTrailAt(e.touches[0].clientX, e.touches[0].clientY), {passive:true});
 
-// â”€â”€ Explosion button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Explosion button &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 function explodeStars(){
   for(let i=0;i<120;i++){
     const ang=Math.random()*Math.PI*2,spd=Math.random()*8+2;
@@ -304,7 +304,7 @@ function explodeStars(){
   }
 }
 
-// â”€â”€ Nebula â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Nebula &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 const nebCanvas=document.createElement('canvas');
 const nebCtx=nebCanvas.getContext('2d');
 function initNebula(){
@@ -323,7 +323,7 @@ function drawGalaxyCore(){
   ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
 }
 
-// â”€â”€ Main loop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Main loop &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
 function animate(){
   requestAnimationFrame(animate);
   ctx.fillStyle='rgba(0,0,2,.25)'; ctx.fillRect(0,0,W,H);
