@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Mi Galaxia Para Ti &#xF0;&#x178;&#x2019;&#xAB;</title>
+<title>Mi Galaxia Para Ti ­ƒÆ½</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;overflow:hidden;font-family:'Lato',sans-serif;cursor:none}
 @media(pointer:coarse){body{cursor:auto}#cursor{display:none}}
 @media(max-width:600px){#firma{font-size:.8rem;top:14px;left:14px}#hint{font-size:.65rem;top:14px;right:14px}#mensaje h1{font-size:clamp(1.4rem,7vw,2.4rem)}#btn-amor{font-size:.75rem;padding:10px 22px;bottom:24px}#meteor-badge{font-size:.65rem;bottom:76px}}
+@media(pointer:coarse){body{cursor:auto}#cursor{display:none}}
+@media(max-width:600px){#firma{font-size:.8rem}#hint{font-size:.65rem}#mensaje h1{font-size:clamp(1.4rem,7vw,2.4rem)}#btn-amor{font-size:.75rem;padding:10px 22px;bottom:24px}}
 canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 #cursor{position:fixed;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,255,.9),rgba(200,100,255,.3));box-shadow:0 0 15px rgba(255,150,255,.8),0 0 30px rgba(180,50,255,.5);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
 #firma{position:fixed;top:22px;left:28px;color:rgba(200,150,255,.55);font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;z-index:200;animation:fadeIn 3s ease forwards;opacity:0}
@@ -21,7 +23,7 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 #btn-amor{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(200,100,255,.15);border:1px solid rgba(200,100,255,.5);color:rgba(255,220,255,.9);padding:11px 30px;border-radius:50px;font-family:'Lato',sans-serif;font-size:.85rem;letter-spacing:.15em;cursor:none;backdrop-filter:blur(10px);transition:all .4s ease;animation:fadeIn 4s ease forwards;opacity:0;text-transform:uppercase}
 #btn-amor:hover{background:rgba(200,100,255,.35);border-color:rgba(255,200,255,.8);box-shadow:0 0 30px rgba(200,100,255,.4);transform:translateX(-50%) scale(1.05)}
 
-/* &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; CARTA DE AMOR &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; */
+/* ÔöÇÔöÇ CARTA DE AMOR ÔöÇÔöÇ */
 #card-overlay{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,10,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .4s ease}
 #card-overlay.visible{opacity:1;pointer-events:all}
 #love-card{position:relative;background:linear-gradient(145deg,rgba(30,0,50,.92),rgba(10,0,30,.96));border:1px solid rgba(200,100,255,.4);border-radius:20px;padding:clamp(24px,5vw,48px) clamp(18px,5vw,44px) clamp(20px,4vw,40px);max-width:420px;width:92%;max-height:90vh;overflow-y:auto;text-align:center;box-shadow:0 0 60px rgba(180,50,255,.35),0 0 120px rgba(180,50,255,.15),inset 0 0 40px rgba(150,0,255,.07);transform:scale(.7) translateY(40px);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0}
@@ -42,47 +44,48 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
 @keyframes floatDeco{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
 @keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-#col-btn{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:300;background:rgba(100,0,200,.2);border:1px solid rgba(200,100,255,.4);color:rgba(255,220,255,.9);padding:7px 20px;border-radius:30px;font-size:.72rem;letter-spacing:.1em;cursor:pointer;backdrop-filter:blur(8px);text-transform:uppercase;touch-action:manipulation;white-space:nowrap}
+#col-btn{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:300;background:rgba(100,0,200,.2);border:1px solid rgba(200,100,255,.4);color:rgba(255,220,255,.9);padding:7px 20px;border-radius:30px;font-size:.72rem;letter-spacing:.1em;cursor:pointer;backdrop-filter:blur(8px);text-transform:uppercase;white-space:nowrap;touch-action:manipulation}
 #col-panel{position:fixed;top:46px;left:50%;transform:translateX(-50%);z-index:300;background:rgba(5,0,20,.92);border:1px solid rgba(150,50,255,.3);border-radius:16px;padding:14px;width:min(96vw,580px);max-height:55vh;overflow-y:auto;backdrop-filter:blur(12px);display:none}
-#col-panel.open{display:block}.col-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.col-ttl{font-family:'Playfair Display',serif;font-style:italic;color:rgba(220,180,255,.9);font-size:.9rem}.col-pct{font-size:.68rem;color:rgba(200,150,255,.6);letter-spacing:.08em}
+#col-panel.open{display:block}.col-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.col-ttl{font-family:'Playfair Display',serif;font-style:italic;color:rgba(220,180,255,.9);font-size:.9rem}.col-pct{font-size:.68rem;color:rgba(200,150,255,.6)}
 .rs{margin-bottom:8px}.rl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}.rc{color:#999}.rr{color:#60aaff}.re{color:#cc66ff}.rl2{color:#ffcc00}.rm{color:#ff66cc}
 .rg{display:flex;flex-wrap:wrap;gap:4px}.cs{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;position:relative;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);transition:.3s}
-.cs.got{border-color:rgba(200,150,255,.4);background:rgba(150,0,255,.12)}.cs .ck{position:absolute;top:-5px;right:-5px;font-size:11px;color:#7fff7f;font-weight:900;line-height:1;text-shadow:0 0 4px #0f0}
+.cs.got{border-color:rgba(200,150,255,.4);background:rgba(150,0,255,.12)}.cs .ck{position:absolute;top:-5px;right:-5px;font-size:11px;color:#7fff7f;font-weight:900;text-shadow:0 0 4px #0f0}
 .cs.rara.got{border-color:#60aaff;box-shadow:0 0 7px rgba(96,170,255,.4)}.cs.epica.got{border-color:#cc66ff;box-shadow:0 0 8px rgba(200,100,255,.5)}.cs.legendaria.got{border-color:#ffcc00;box-shadow:0 0 10px rgba(255,200,0,.5)}.cs.mitica.got{border-color:#ff66cc;box-shadow:0 0 14px rgba(255,100,200,.7);animation:mp 2s ease-in-out infinite}
 @keyframes mp{0%,100%{box-shadow:0 0 14px rgba(255,100,200,.7)}50%{box-shadow:0 0 24px rgba(255,100,200,1)}}
-.rb{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}.rb.comun{color:#999}.rb.rara{color:#60aaff}.rb.epica{color:#cc66ff}.rb.legendaria{color:#ffcc00}.rb.mitica{color:#ff66cc}100%{background-position:200% 50%}}
+.rb{font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}.rb.comun{color:#999}.rb.rara{color:#60aaff}.rb.epica{color:#cc66ff}.rb.legendaria{color:#ffcc00}.rb.mitica{color:#ff66cc}
+#love-card{position:relative;background:linear-gradient(145deg,rgba(30,0,50,.92),rgba(10,0,30,.96));border:1px solid rgba(200,100,255,.4);border-radius:20px;padding:clamp(24px,5vw,48px) clamp(18px,5vw,44px) clamp(20px,4vw,40px);max-width:420px;width:92%;max-height:90vh;overflow-y:auto;text-align:center;box-shadow:0 0 60px rgba(180,50,255,.35),0 0 120px rgba(180,50,255,.15);transform:scale(.7) translateY(40px);transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0}
 </style>
 </head>
 <body>
 <canvas id="galaxy"></canvas>
 <div id="cursor"></div>
-<button id="col-btn" onclick="togglePanel()">&#x1F4E6; Colecci&#xF3;n: <span id="col-count">0</span>/100</button>
-<div id="col-panel"><div class="col-hdr"><span class="col-ttl">&#x2726; Mis Cartas de Amor &#x2726;</span><span class="col-pct" id="col-pct">0% completado</span></div><div class="rs"><div class="rl rm">&#x1F52E; M&#xED;tica</div><div class="rg" id="grid-mitica"></div></div><div class="rs"><div class="rl rl2">&#x1F31F; Legendaria</div><div class="rg" id="grid-legendaria"></div></div><div class="rs"><div class="rl re">&#x1F49C; &#xC9;pica</div><div class="rg" id="grid-epica"></div></div><div class="rs"><div class="rl rr">&#x1F499; Rara</div><div class="rg" id="grid-rara"></div></div><div class="rs"><div class="rl rc">&#x2B50; Com&#xFA;n</div><div class="rg" id="grid-comun"></div></div></div>
-<div id="firma">&#xE2;&#x153;&#xA6; Tu Universo</div>
-<div id="hint">&#xE2;&#x2DC;&#x201E;&#xEF;&#xB8;&#x8F; toca los meteoritos</div>
+<button id="col-btn" onclick="togglePanel()">&#x1F4E6; Coleccion: <span id="col-count">0</span>/100</button>
+<div id="col-panel"><div class="col-hdr"><span class="col-ttl">&#x2726; Mis Cartas de Amor &#x2726;</span><span class="col-pct" id="col-pct">0% completado</span></div><div class="rs"><div class="rl rm">&#x1F52E; Mitica</div><div class="rg" id="grid-mitica"></div></div><div class="rs"><div class="rl rl2">&#x1F31F; Legendaria</div><div class="rg" id="grid-legendaria"></div></div><div class="rs"><div class="rl re">&#x1F49C; Epica</div><div class="rg" id="grid-epica"></div></div><div class="rs"><div class="rl rr">&#x1F499; Rara</div><div class="rg" id="grid-rara"></div></div><div class="rs"><div class="rl rc">&#x2B50; Comun</div><div class="rg" id="grid-comun"></div></div></div>
+<div id="firma">Ô£ª Tu Universo</div>
+<div id="hint">Ôÿä´©Å toca los meteoritos</div>
 <div id="mensaje">
   <h1>Eres mi galaxia favorita</h1>
   <p>En cada estrella veo razones para amarte</p>
-  <div id="hearts">&#xF0;&#x178;&#x2019;&#x153; &#xE2;&#x153;&#xA8; &#xF0;&#x178;&#x2019;&#xAB; &#xE2;&#x153;&#xA8; &#xF0;&#x178;&#x2019;&#x153;</div>
+  <div id="hearts">­ƒÆ£ Ô£¿ ­ƒÆ½ Ô£¿ ­ƒÆ£</div>
 </div>
-<div id="meteor-badge">&#xE2;&#x2DC;&#x201E;&#xEF;&#xB8;&#x8F; &nbsp;Hay meteoritos con cartas de amor esper&#xC3;&#xA1;ndote&nbsp; &#xE2;&#x2DC;&#x201E;&#xEF;&#xB8;&#x8F;</div>
-<button id="btn-amor" onclick="explodeStars()">&#xE2;&#x153;&#xA8; Explosi&#xC3;&#xB3;n de amor &#xE2;&#x153;&#xA8;</button>
+<div id="meteor-badge">Ôÿä´©Å &nbsp;Hay meteoritos con cartas de amor esper├índote&nbsp; Ôÿä´©Å</div>
+<button id="btn-amor" onclick="explodeStars()">Ô£¿ Explosi├│n de amor Ô£¿</button>
 
-<!-- Carta de amor - UTF8 -->
+<!-- Carta de amor -->
 <div id="card-overlay" onclick="closeCard(event)">
   <div id="love-card">
     <div class="card-stars" id="cardStarsCanvas"></div>
-    <div class="card-deco" id="cardDeco">&#xF0;&#x178;&#x2019;&#x152;</div>
+    <div class="card-deco" id="cardDeco">­ƒÆî</div>
     <div class="card-title" id="cardTitle">Para ti, mi amor</div>
     <p class="card-text" id="cardText"></p>
-    <div class="card-footer">&#xE2;&#x20AC;&#x201D; Con todo mi amor &#xF0;&#x178;&#x2019;&#x153;</div>
-    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta &#xE2;&#x153;&#x2022;</button>
+    <div class="card-footer">ÔÇö Con todo mi amor ­ƒÆ£</div>
+    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta Ô£ò</button>
   </div>
 </div>
 
 <script src="cartas.js"></script>
 <script>
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Setup &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Setup ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const canvas = document.getElementById('galaxy');
 const ctx    = canvas.getContext('2d');
 let W = canvas.width  = window.innerWidth;
@@ -90,6 +93,7 @@ let H = canvas.height = window.innerHeight;
 const cursor = document.getElementById('cursor');
 let mouseX = W/2, mouseY = H/2;
 
+document.addEventListener('touchmove', e => { mouseX=e.touches[0].clientX; mouseY=e.touches[0].clientY; }, {passive:true});
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX; mouseY = e.clientY;
   cursor.style.left = mouseX + 'px';
@@ -105,25 +109,25 @@ window.addEventListener('resize', () => {
   initNebula();
 });
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Cartas de amor &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
-// Collection system (cards in cartas.js)
+// ÔöÇÔöÇ Cartas de amor ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+// Collection system (100 cards loaded from cartas.js)
 const RARITY_COLORS={comun:'#ffffff',rara:'#60aaff',epica:'#cc66ff',legendaria:'#ffcc00',mitica:'#ff66cc'};
-let collected=new Set(JSON.parse(localStorage.getItem('coleccion')||'[]'));
-function saveCollection(){localStorage.setItem('coleccion',JSON.stringify([...collected]));}
+let collected=new Set(JSON.parse(localStorage.getItem('col')||'[]'));
+function saveCol(){localStorage.setItem('col',JSON.stringify([...collected]));}
 function pickRarity(){const r=Math.random()*100;if(r<1)return'mitica';if(r<5)return'legendaria';if(r<17)return'epica';if(r<45)return'rara';return'comun';}
 function pickCarta(rar){const p=CARTAS.filter(c=>c.r===rar);return p.length?p[Math.floor(Math.random()*p.length)]:CARTAS[0];}
-function showCardData(c){const names={comun:'&#x2B50; Com&#xFA;n',rara:'&#x1F499; Rara',epica:'&#x1F49C; &#xC9;pica',legendaria:'&#x1F31F; &#xA1;LEGENDARIA!',mitica:'&#x1F52E; &#xA1;&#xA1;M&#xCD;TICA!!'};document.getElementById('cardDeco').textContent=c.d;document.getElementById('cardTitle').textContent=c.t;document.getElementById('cardText').textContent=c.x;const rb=document.getElementById('cardRarity');if(rb){rb.textContent=names[c.r]||c.r;rb.className='rb '+c.r;}document.getElementById('card-overlay').classList.add('visible');}
-function mostrarCarta(mx,my,rar){const c=pickCarta(rar||'comun');collected.add(c.id);saveCollection();renderCollection();showCardData(c);const col=RARITY_COLORS[c.r]||'#fff';for(let i=0;i<30;i++){const a=Math.random()*Math.PI*2,sp=Math.random()*5+1;const s=new Star(mx,my,Math.random()*2+.5,1,0,col);s.vx=Math.cos(a)*sp;s.vy=Math.sin(a)*sp;s.maxLife=s.life=Math.random()*50+20;trail.push(s);}}
-function verCarta(id){const c=CARTAS.find(x=>x.id===id);if(!c)return;document.getElementById('col-panel').classList.remove('open');showCardData(c);}
+function showCardData(c){const nm={comun:'Comun',rara:'Rara',epica:'Epica',legendaria:'LEGENDARIA!',mitica:'MITICA!!'};document.getElementById('cardDeco').textContent=c.d;document.getElementById('cardTitle').textContent=c.t;document.getElementById('cardText').textContent=c.x;const rb=document.getElementById('cardRarity');if(rb){rb.textContent='Rareza: '+nm[c.r];rb.className='rb '+c.r;}document.getElementById('card-overlay').classList.add('visible');}
+function mostrarCarta(mx,my,rar){const c=pickCarta(rar||'comun');collected.add(c.id);saveCol();renderCol();showCardData(c);const col=RARITY_COLORS[c.r]||'#fff';for(let i=0;i<30;i++){const a=Math.random()*Math.PI*2,sp=Math.random()*5+1;const s=new Star(mx,my,Math.random()*2+.5,1,0,col);s.vx=Math.cos(a)*sp;s.vy=Math.sin(a)*sp;s.maxLife=s.life=Math.random()*50+20;trail.push(s);}}
 function closeCard(e,force){if(force||(e&&e.target===document.getElementById('card-overlay')))document.getElementById('card-overlay').classList.remove('visible');}
+function verCarta(id){const c=CARTAS.find(x=>x.id===id);if(!c)return;document.getElementById('col-panel').classList.remove('open');showCardData(c);}
 function togglePanel(){document.getElementById('col-panel').classList.toggle('open');}
-function renderCollection(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML=grids[r].map(c=>{const got=collected.has(c.id);const click=got?'onclick="verCarta('+c.id+')" style="cursor:pointer"':'';return'<div class="cs '+r+(got?' got':'')+' " title="'+(got?c.t:'???')+'" '+click+'>'+(got?c.d:'&#x1F311;')+(got?'<span class="ck">+</span>':'')+'</div>';}).join('');});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
+function renderCol(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML=grids[r].map(c=>{const got=collected.has(c.id);const clk=got?'onclick=&quot;verCarta('+c.id+')&quot; style=&quot;cursor:pointer&quot;':'';return'<div class=&quot;cs '+r+(got?' got':'')+'&quot; title=&quot;'+(got?c.t:'???')+'&quot; '+clk+'>'+(got?c.d:'?')+(got?'<span class=&quot;ck&quot;>+</span>':'')+'</div>';}).join('');});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
 
 function randomStarColor() {
   return ['#ffffff','#ffd6ff','#c77dff','#ff9ef7','#a8dadc','#caf0f8','#e0aaff','#ffcfef','#f8edff','#b5e2fa'][Math.floor(Math.random()*10)];
 }
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Stars &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Stars ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const stars = [], trail = [], explosionParticles = [];
 class Star {
   constructor(x,y,size,alpha,speed,color){
@@ -155,22 +159,25 @@ class Star {
 }
 function initStars(){stars.length=0;for(let i=0;i<700;i++)stars.push(new Star());}
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Meteors (clickable) &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Meteors (clickable) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const meteors = [];
 let meteorTimer = 0;
 
 class Meteor {
   constructor(){
+    this.rareza=pickRarity();
+    const rs={comun:{sp:6,sz:3,col:'#fff'},rara:{sp:4.5,sz:5,col:'#60aaff'},epica:{sp:3,sz:6,col:'#cc66ff'},legendaria:{sp:2,sz:8,col:'#ffcc00'},mitica:{sp:1.2,sz:10,col:'#ff66cc'}};
+    const cfg=rs[this.rareza];
     this.x = Math.random() * W * 0.7;
     this.y = Math.random() * H * 0.35;
-    this.speed = Math.random() * 5 + 3.5;
+    this.speed = Math.random()*cfg.sp+1.5;
     this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.4;
     this.alpha = 0;
     this.fadeIn = true;
     this.tail   = [];
-    this.color  = randomStarColor();
-    this.active = true;
-    this.headSize = Math.random() * 3 + 3; // bigger = easier to click
+    this.color=cfg.col;
+    this.active=true;
+    this.headSize=cfg.sz+Math.random()*2; // bigger = easier to click
     // Hitbox: track head position
     this.hx = this.x; this.hy = this.y;
     // Glow pulse
@@ -219,11 +226,11 @@ class Meteor {
     ctx.arc(this.x, this.y, this.headSize + 5, 0, Math.PI*2);
     ctx.stroke();
     ctx.restore();
-    // &#xF0;&#x178;&#x2019;&#x152; emoji float near head
+    // ­ƒÆî emoji float near head
     ctx.save();
     ctx.globalAlpha = this.alpha * .7;
     ctx.font = '14px serif';
-    ctx.fillText('&#xF0;&#x178;&#x2019;&#x152;', this.x + 10, this.y - 10);
+    ctx.fillText('­ƒÆî', this.x + 10, this.y - 10);
     ctx.restore();
   }
   hitTest(px, py){
@@ -240,7 +247,7 @@ function spawnMeteors(){
   }
 }
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Tap handler (click + touch) &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Tap handler (click + touch) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 function handleTap(mx, my){
   let hit = false;
   for(let i = meteors.length-1; i>=0; i--){
@@ -261,12 +268,13 @@ function handleTap(mx, my){
   }
 }
 canvas.addEventListener('click', e => handleTap(e.clientX, e.clientY));
+canvas.addEventListener('touchstart', e => { e.preventDefault(); handleTap(e.touches[0].clientX, e.touches[0].clientY); }, {passive:false});
 canvas.addEventListener('touchstart', e => {
   e.preventDefault();
   handleTap(e.touches[0].clientX, e.touches[0].clientY);
 }, {passive:false});
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Dust &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Dust ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const DUST=[];
 class Dust{
   constructor(){this.reset();}
@@ -281,7 +289,7 @@ class Dust{
 }
 for(let i=0;i<200;i++) DUST.push(new Dust());
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Cursor / touch trail &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Cursor / touch trail ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 function spawnTrailAt(x,y){
   if(Math.random()>.4){
     const t=new Star(x+(Math.random()-.5)*8,y+(Math.random()-.5)*8,Math.random()*2+.5,.9,0,randomStarColor());
@@ -293,7 +301,7 @@ function spawnTrailAt(x,y){
 document.addEventListener('mousemove', e => spawnTrailAt(e.clientX, e.clientY));
 document.addEventListener('touchmove', e => spawnTrailAt(e.touches[0].clientX, e.touches[0].clientY), {passive:true});
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Explosion button &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Explosion button ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 function explodeStars(){
   for(let i=0;i<120;i++){
     const ang=Math.random()*Math.PI*2,spd=Math.random()*8+2;
@@ -304,7 +312,7 @@ function explodeStars(){
   }
 }
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Nebula &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Nebula ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 const nebCanvas=document.createElement('canvas');
 const nebCtx=nebCanvas.getContext('2d');
 function initNebula(){
@@ -323,7 +331,7 @@ function drawGalaxyCore(){
   ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
 }
 
-// &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC; Main loop &#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;&#xE2;&#x201D;&#x20AC;
+// ÔöÇÔöÇ Main loop ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 function animate(){
   requestAnimationFrame(animate);
   ctx.fillStyle='rgba(0,0,2,.25)'; ctx.fillRect(0,0,W,H);
@@ -338,13 +346,7 @@ function animate(){
   ctx.globalAlpha=1;
 }
 
-initNebula(); initStars(); animate(); renderCollection();
+initNebula(); initStars(); animate(); renderCol();
 </script>
 </body>
 </html>
-
-
-
-
-
-
