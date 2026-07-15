@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Mi Galaxia Para Ti ­ƒÆ½</title>
+<title>Mi Galaxia Para Ti &#x2728;</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -61,25 +61,25 @@ canvas{display:block;position:fixed;top:0;left:0;width:100%;height:100%}
 <div id="cursor"></div>
 <button id="col-btn" onclick="togglePanel()">&#x1F4E6; Coleccion: <span id="col-count">0</span>/100</button>
 <div id="col-panel"><div class="col-hdr"><span class="col-ttl">&#x2726; Mis Cartas de Amor &#x2726;</span><span class="col-pct" id="col-pct">0% completado</span></div><div class="rs"><div class="rl rm">&#x1F52E; Mitica</div><div class="rg" id="grid-mitica"></div></div><div class="rs"><div class="rl rl2">&#x1F31F; Legendaria</div><div class="rg" id="grid-legendaria"></div></div><div class="rs"><div class="rl re">&#x1F49C; Epica</div><div class="rg" id="grid-epica"></div></div><div class="rs"><div class="rl rr">&#x1F499; Rara</div><div class="rg" id="grid-rara"></div></div><div class="rs"><div class="rl rc">&#x2B50; Comun</div><div class="rg" id="grid-comun"></div></div></div>
-<div id="firma">Ô£ª Tu Universo</div>
-<div id="hint">Ôÿä´©Å toca los meteoritos</div>
+<div id="firma">&#x2764;&#xFE0F; Tu Universo</div>
+<div id="hint">&#x1F320; toca los meteoritos</div>
 <div id="mensaje">
   <h1>Eres mi galaxia favorita</h1>
   <p>En cada estrella veo razones para amarte</p>
-  <div id="hearts">­ƒÆ£ Ô£¿ ­ƒÆ½ Ô£¿ ­ƒÆ£</div>
+  <div id="hearts">&#x1F493; &#x2764;&#xFE0F; &#x2728; &#x2764;&#xFE0F; &#x1F493;</div>
 </div>
-<div id="meteor-badge">Ôÿä´©Å &nbsp;Hay meteoritos con cartas de amor esper├índote&nbsp; Ôÿä´©Å</div>
-<button id="btn-amor" onclick="explodeStars()">Ô£¿ Explosi├│n de amor Ô£¿</button>
+<div id="meteor-badge">&#x1F320; &nbsp;Hay meteoritos con cartas de amor esper&#225;ndote&nbsp; &#x1F320;</div>
+<button id="btn-amor" onclick="explodeStars()">&#x2764;&#xFE0F; Explosi&#243;n de amor &#x2764;&#xFE0F;</button>
 
 <!-- Carta de amor -->
 <div id="card-overlay" onclick="closeCard(event)">
   <div id="love-card">
     <div class="card-stars" id="cardStarsCanvas"></div>
-    <div class="card-deco" id="cardDeco">­ƒÆî</div>
+    <div class="card-deco" id="cardDeco">&#x1F48C;</div>
     <div class="card-title" id="cardTitle">Para ti, mi amor</div>
     <p class="card-text" id="cardText"></p>
-    <div class="card-footer">ÔÇö Con todo mi amor ­ƒÆ£</div>
-    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta Ô£ò</button>
+    <div class="card-footer">&#x2014; Con todo mi amor &#x1F493;</div>
+    <button id="card-close" onclick="closeCard(null, true)">Cerrar carta &#x274C;</button>
   </div>
 </div>
 
@@ -121,7 +121,7 @@ function mostrarCarta(mx,my,rar){const c=pickCarta(rar||'comun');collected.add(c
 function closeCard(e,force){if(force||(e&&e.target===document.getElementById('card-overlay')))document.getElementById('card-overlay').classList.remove('visible');}
 function verCarta(id){const c=CARTAS.find(x=>x.id===id);if(!c)return;document.getElementById('col-panel').classList.remove('open');showCardData(c);}
 function togglePanel(){document.getElementById('col-panel').classList.toggle('open');}
-function renderCol(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML=grids[r].map(c=>{const got=collected.has(c.id);const clk=got?'onclick=&quot;verCarta('+c.id+')&quot; style=&quot;cursor:pointer&quot;':'';return'<div class=&quot;cs '+r+(got?' got':'')+'&quot; title=&quot;'+(got?c.t:'???')+'&quot; '+clk+'>'+(got?c.d:'?')+(got?'<span class=&quot;ck&quot;>+</span>':'')+'</div>';}).join('');});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
+function renderCol(){const grids={comun:[],rara:[],epica:[],legendaria:[],mitica:[]};CARTAS.forEach(c=>{if(grids[c.r])grids[c.r].push(c);});['comun','rara','epica','legendaria','mitica'].forEach(r=>{const g=document.getElementById('grid-'+r);if(!g)return;g.innerHTML='';grids[r].forEach(c=>{const got=collected.has(c.id);const el=document.createElement('div');el.className='cs '+r+(got?' got':'');el.title=got?c.t:'???';el.textContent=got?c.d:'?';if(got){const ck=document.createElement('span');ck.className='ck';ck.textContent='+';el.appendChild(ck);el.style.cursor='pointer';el.addEventListener('click',()=>verCarta(c.id));el.addEventListener('touchend',e=>{e.preventDefault();verCarta(c.id);},{passive:false});}g.appendChild(el);});});const n=collected.size;document.getElementById('col-count').textContent=n;const p=document.getElementById('col-pct');if(p)p.textContent=Math.round(n/100*100)+'% completado';}
 
 function randomStarColor() {
   return ['#ffffff','#ffd6ff','#c77dff','#ff9ef7','#a8dadc','#caf0f8','#e0aaff','#ffcfef','#f8edff','#b5e2fa'][Math.floor(Math.random()*10)];
@@ -230,7 +230,7 @@ class Meteor {
     ctx.save();
     ctx.globalAlpha = this.alpha * .7;
     ctx.font = '14px serif';
-    ctx.fillText('­ƒÆî', this.x + 10, this.y - 10);
+    ctx.fillText('💌', this.x + 10, this.y - 10);
     ctx.restore();
   }
   hitTest(px, py){
